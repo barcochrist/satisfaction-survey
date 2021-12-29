@@ -8,6 +8,8 @@ import com.github.barcochrist.satisfactionsurvey.service.QuestionService;
 import java.util.List;
 import java.util.Optional;
 import javax.validation.constraints.NotNull;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -37,5 +39,11 @@ public class QuestionServiceImpl implements QuestionService {
   @Override
   public List<QuestionOption> findOptionsByQuestionId(String questionId) {
     return questionOptionRepository.findByQuestionId(questionId);
+  }
+
+  @NotNull
+  @Override
+  public Page<Question> findAll(Pageable pageable) {
+    return questionRepository.findAll(pageable);
   }
 }
