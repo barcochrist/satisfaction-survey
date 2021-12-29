@@ -30,22 +30,13 @@ CREATE TABLE "question_options" (
 ;
 
 -- -----------------------------------------------------
--- Table "restaurants"
--- -----------------------------------------------------
-CREATE TABLE "restaurants" (
-  "id" VARCHAR(40) NOT NULL,
-  "name" VARCHAR(100) NOT NULL,
-  PRIMARY KEY ("id"))
-;
-
--- -----------------------------------------------------
 -- Table "answer_questions"
 -- -----------------------------------------------------
 CREATE TABLE "answer_questions" (
   "id" VARCHAR(40) NOT NULL,
   "questions_id" VARCHAR(40) NOT NULL,
   "answers_id" VARCHAR(40) NOT NULL,
-  "response" VARCHAR(100) NULL,
+  "response" VARCHAR(500) NULL,
   PRIMARY KEY ("id"))
 ;
 
