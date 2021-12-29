@@ -8,4 +8,7 @@ public interface QuestionOptionRepository {
 
   @NotNull
   List<QuestionOption> findByQuestionId(String questionId);
+
+  @NotNull
+  List<QuestionOption> findSeveralOptions(List<String> optionIds);
 }

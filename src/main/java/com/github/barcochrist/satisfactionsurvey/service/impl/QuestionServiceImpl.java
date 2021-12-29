@@ -41,6 +41,11 @@ public class QuestionServiceImpl implements QuestionService {
     return questionOptionRepository.findByQuestionId(questionId);
   }
 
+  @Override
+  public List<QuestionOption> findSeveralOptions(List<String> optionIds) {
+    return questionOptionRepository.findSeveralOptions(optionIds);
+  }
+
   @NotNull
   @Override
   public Page<Question> findAll(Pageable pageable) {

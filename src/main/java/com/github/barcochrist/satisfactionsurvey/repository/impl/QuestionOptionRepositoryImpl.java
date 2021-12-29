@@ -28,4 +28,12 @@ public class QuestionOptionRepositoryImpl implements QuestionOptionRepository {
         .stream()
         .collect(Collectors.toList());
   }
+
+  @NotNull
+  @Override
+  public List<QuestionOption> findSeveralOptions(List<String> optionIds) {
+    return questionOptionJpaRepository.findAllById(optionIds)
+        .stream()
+        .collect(Collectors.toList());
+  }
 }

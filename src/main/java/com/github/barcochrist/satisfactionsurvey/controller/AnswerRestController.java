@@ -1,9 +1,10 @@
 package com.github.barcochrist.satisfactionsurvey.controller;
 
 import com.github.barcochrist.satisfactionsurvey.model.Answer;
-import com.github.barcochrist.satisfactionsurvey.model.Question;
+import com.github.barcochrist.satisfactionsurvey.model.enums.QuestionType;
 import com.github.barcochrist.satisfactionsurvey.resource.AnswerQuestionResource;
 import com.github.barcochrist.satisfactionsurvey.resource.AnswerResource;
+import com.github.barcochrist.satisfactionsurvey.resource.QuestionOptionResource;
 import com.github.barcochrist.satisfactionsurvey.service.AnswerService;
 import com.github.barcochrist.satisfactionsurvey.service.QuestionService;
 import java.util.List;
@@ -46,6 +47,12 @@ public class AnswerRestController {
     return ResponseEntity.ok(response.getContent());
   }
 
+  /**
+   * Instance a new {@link AnswerResource}.
+   *
+   * @param response An {@link Answer} instance
+   * @return A new full {@link AnswerResource} instance
+   */
   @NotNull
   private AnswerResource instanceAnswerResource(@NotNull Answer response) {
     var answers = answerService
@@ -53,10 +60,43 @@ public class AnswerRestController {
         .stream()
         .map(answerQuestion -> {
           var question = questionService.findById(answerQuestion.getQuestionId());
-          return AnswerQuestionResource.from(
-              answerQuestion,
-              question.map(Question::getTitle).orElse(null)
-          );
+
+          if (question.isPresent()) {
+            if (QuestionType.MULTIPLE_CHOICE.equals(question.get().getType())) {
+              var optionIds = List
+                  .of(answerQuestion.getResponse().orElse("").split(","));
+
+              var options = questionService
+                  .findSeveralOptions(optionIds)
+                  .stream()
+                  .map(QuestionOptionResource::from)
+                  .collect(Collectors.toList());
+
+              return AnswerQuestionResource.from(
+                  answerQuestion,
+                  null,
+                  question.get().getTitle(),
+                  question.get().getType(),
+                  options
+              );
+            } else {
+              return AnswerQuestionResource.from(
+                  answerQuestion,
+                  answerQuestion.getResponse().orElse(null),
+                  question.get().getTitle(),
+                  question.get().getType(),
+                  null
+              );
+            }
+          } else {
+            return AnswerQuestionResource.from(
+                answerQuestion,
+                answerQuestion.getResponse().orElse(null),
+                null,
+                null,
+                null
+            );
+          }
         })
         .collect(Collectors.toList());
 

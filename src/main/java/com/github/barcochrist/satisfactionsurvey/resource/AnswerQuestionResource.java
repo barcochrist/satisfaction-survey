@@ -1,7 +1,8 @@
 package com.github.barcochrist.satisfactionsurvey.resource;
 
 import com.github.barcochrist.satisfactionsurvey.model.AnswerQuestion;
-import java.util.Optional;
+import com.github.barcochrist.satisfactionsurvey.model.enums.QuestionType;
+import java.util.List;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
@@ -13,7 +14,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class AnswerQuestionResource implements AnswerQuestion {
+public class AnswerQuestionResource {
 
   @NotBlank
   private String id;
@@ -30,6 +31,12 @@ public class AnswerQuestionResource implements AnswerQuestion {
   @Null
   private String questionTitle;
 
+  @Null
+  private QuestionType questionType;
+
+  @Null
+  private List<QuestionOptionResource> options;
+
   /**
    * Factory method.
    *
@@ -39,20 +46,19 @@ public class AnswerQuestionResource implements AnswerQuestion {
   @NotNull
   public static AnswerQuestionResource from(
       @NotNull AnswerQuestion other,
-      @Null String questionTitle
+      @Null String response,
+      @Null String questionTitle,
+      @Null QuestionType questionType,
+      @Null List<QuestionOptionResource> options
   ) {
     return new AnswerQuestionResource(
         other.getId(),
         other.getAnswerId(),
         other.getQuestionId(),
-        other.getResponse().orElse(null),
-        questionTitle
+        response,
+        questionTitle,
+        questionType,
+        options
     );
-  }
-
-  @NotNull
-  @Override
-  public Optional<String> getResponse() {
-    return Optional.of(response);
   }
 }

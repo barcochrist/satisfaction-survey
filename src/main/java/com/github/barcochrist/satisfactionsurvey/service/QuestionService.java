@@ -17,5 +17,8 @@ public interface QuestionService {
   List<QuestionOption> findOptionsByQuestionId(String questionId);
 
   @NotNull
+  List<QuestionOption> findSeveralOptions(List<String> optionIds);
+
+  @NotNull
   Page<Question> findAll(Pageable pageable);
 }

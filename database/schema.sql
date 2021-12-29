@@ -36,17 +36,6 @@ CREATE TABLE "answer_questions" (
   "id" VARCHAR(40) NOT NULL,
   "questions_id" VARCHAR(40) NOT NULL,
   "answers_id" VARCHAR(40) NOT NULL,
-  "response" VARCHAR(500) NULL,
-  PRIMARY KEY ("id"))
-;
-
--- -----------------------------------------------------
--- Table "answer_question_options"
--- -----------------------------------------------------
-CREATE TABLE "answer_question_options" (
-  "id" VARCHAR(40) NOT NULL,
-  "name" VARCHAR(100) NOT NULL,
-  "answer_questions_id" VARCHAR(40) NOT NULL,
-  "question_options_id" VARCHAR(40) NOT NULL,
+  "response" VARCHAR NULL, -- it can represent a number of concatenated "options" identifiers
   PRIMARY KEY ("id"))
 ;
