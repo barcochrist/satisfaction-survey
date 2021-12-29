@@ -2,6 +2,7 @@ package com.github.barcochrist.satisfactionsurvey.controller;
 
 import com.github.barcochrist.satisfactionsurvey.model.Answer;
 import com.github.barcochrist.satisfactionsurvey.model.enums.QuestionType;
+import com.github.barcochrist.satisfactionsurvey.resource.AnswerDraftResource;
 import com.github.barcochrist.satisfactionsurvey.resource.AnswerQuestionResource;
 import com.github.barcochrist.satisfactionsurvey.resource.AnswerResource;
 import com.github.barcochrist.satisfactionsurvey.resource.QuestionOptionResource;
@@ -9,12 +10,17 @@ import com.github.barcochrist.satisfactionsurvey.service.AnswerService;
 import com.github.barcochrist.satisfactionsurvey.service.QuestionService;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -45,6 +51,18 @@ public class AnswerRestController {
         .map(this::instanceAnswerResource);
 
     return ResponseEntity.ok(response.getContent());
+  }
+
+  /**
+   * Create a new full {@link Answer}.
+   */
+  @PostMapping
+  @ResponseStatus(HttpStatus.CREATED)
+  public ResponseEntity<AnswerResource> create(
+      @RequestBody @Valid AnswerDraftResource draft
+  ) {
+    var answer = answerService.create(draft);
+    return ResponseEntity.ok(instanceAnswerResource(answer));
   }
 
   /**

@@ -1,8 +1,10 @@
 package com.github.barcochrist.satisfactionsurvey.repository.impl;
 
+import com.github.barcochrist.satisfactionsurvey.entity.AnswerJpa;
 import com.github.barcochrist.satisfactionsurvey.model.Answer;
 import com.github.barcochrist.satisfactionsurvey.repository.AnswerRepository;
 import com.github.barcochrist.satisfactionsurvey.repository.jpa.AnswerJpaRepository;
+import java.util.Optional;
 import javax.validation.constraints.NotNull;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,9 +24,20 @@ public class AnswerRepositoryImpl implements AnswerRepository {
 
   @NotNull
   @Override
+  public Optional<Answer> findByEmail(String email) {
+    return answerJpaRepository.findByEmailIgnoreCase(email);
+  }
+
+  @NotNull
+  @Override
   public Page<Answer> findAll(Pageable pageable) {
     return answerJpaRepository
         .findAll(pageable)
         .map(answerJpa -> answerJpa);
+  }
+
+  @Override
+  public Answer create(Answer answer) {
+    return answerJpaRepository.save(AnswerJpa.from(answer));
   }
 }

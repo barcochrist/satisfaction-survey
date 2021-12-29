@@ -8,4 +8,7 @@ public interface AnswerQuestionRepository {
 
   @NotNull
   List<AnswerQuestion> findByAnswerId(String answerId);
+
+  @NotNull
+  AnswerQuestion create(AnswerQuestion answerQuestion);
 }

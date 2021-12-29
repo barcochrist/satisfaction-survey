@@ -1,6 +1,7 @@
 package com.github.barcochrist.satisfactionsurvey.repository;
 
 import com.github.barcochrist.satisfactionsurvey.model.Question;
+import java.util.List;
 import java.util.Optional;
 import javax.validation.constraints.NotNull;
 import org.springframework.data.domain.Page;
@@ -13,4 +14,7 @@ public interface QuestionRepository {
 
   @NotNull
   Page<Question> findAll(Pageable pageable);
+
+  @NotNull
+  List<Question> findRequired();
 }
