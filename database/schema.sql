@@ -10,21 +10,12 @@ CREATE TABLE "questions" (
 ;
 
 -- -----------------------------------------------------
--- Table "users"
--- -----------------------------------------------------
-CREATE TABLE "users" (
-  "id" VARCHAR(40) NOT NULL,
-  "name" VARCHAR(50) NOT NULL,
-  "email" VARCHAR(100) NOT NULL,
-  PRIMARY KEY ("id"))
-;
-
--- -----------------------------------------------------
 -- Table "answers"
 -- -----------------------------------------------------
 CREATE TABLE "answers" (
   "id" VARCHAR(40) NOT NULL,
-  "users_id" VARCHAR(40) NOT NULL,
+  "customer_name" VARCHAR(100) NOT NULL,
+  "email" VARCHAR(100) NOT NULL,
   PRIMARY KEY ("id"))
 ;
 
