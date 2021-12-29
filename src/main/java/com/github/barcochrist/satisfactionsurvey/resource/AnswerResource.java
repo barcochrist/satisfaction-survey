@@ -1,6 +1,7 @@
 package com.github.barcochrist.satisfactionsurvey.resource;
 
 import com.github.barcochrist.satisfactionsurvey.model.Answer;
+import java.util.List;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -22,6 +23,9 @@ public class AnswerResource implements Answer {
   @NotBlank
   private String customerName;
 
+  @NotNull
+  private List<AnswerQuestionResource> answers;
+
   /**
    * Factory method.
    *
@@ -30,12 +34,14 @@ public class AnswerResource implements Answer {
    */
   @NotNull
   public static AnswerResource from(
-      @NotNull Answer other
+      @NotNull Answer other,
+      @NotNull List<AnswerQuestionResource> answers
   ) {
     return new AnswerResource(
         other.getId(),
         other.getEmail(),
-        other.getCustomerName()
+        other.getCustomerName(),
+        answers
     );
   }
 }
