@@ -63,8 +63,7 @@ public class AnswerRestController {
 
           if (question.isPresent()) {
             if (QuestionType.MULTIPLE_CHOICE.equals(question.get().getType())) {
-              var optionIds = List
-                  .of(answerQuestion.getResponse().orElse("").split(","));
+              var optionIds = List.of(answerQuestion.getResponse().split(","));
 
               var options = questionService
                   .findSeveralOptions(optionIds)
@@ -82,7 +81,7 @@ public class AnswerRestController {
             } else {
               return AnswerQuestionResource.from(
                   answerQuestion,
-                  answerQuestion.getResponse().orElse(null),
+                  answerQuestion.getResponse(),
                   question.get().getTitle(),
                   question.get().getType(),
                   null
@@ -91,7 +90,7 @@ public class AnswerRestController {
           } else {
             return AnswerQuestionResource.from(
                 answerQuestion,
-                answerQuestion.getResponse().orElse(null),
+                answerQuestion.getResponse(),
                 null,
                 null,
                 null

@@ -1,14 +1,12 @@
 package com.github.barcochrist.satisfactionsurvey.entity;
 
 import com.github.barcochrist.satisfactionsurvey.model.AnswerQuestion;
-import java.util.Optional;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -33,7 +31,7 @@ public class AnswerQuestionJpa implements AnswerQuestion {
   @Column(name = "questions_id")
   private String questionId;
 
-  @Null
+  @NotBlank
   private String response;
 
   /**
@@ -56,13 +54,7 @@ public class AnswerQuestionJpa implements AnswerQuestion {
         other.getId(),
         other.getAnswerId(),
         other.getQuestionId(),
-        other.getResponse().orElse(null)
+        other.getResponse()
     );
-  }
-
-  @NotNull
-  @Override
-  public Optional<String> getResponse() {
-    return Optional.of(response);
   }
 }
