@@ -10,6 +10,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -17,6 +18,7 @@ import lombok.Data;
  */
 @Data
 @Entity
+@Builder
 @AllArgsConstructor
 @Table(name = "questions")
 public class QuestionJpa implements Question {
