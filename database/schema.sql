@@ -14,8 +14,8 @@ CREATE TABLE "questions" (
 -- -----------------------------------------------------
 CREATE TABLE "answers" (
   "id" VARCHAR(40) NOT NULL,
-  "customer_name" VARCHAR(100) NOT NULL,
   "email" VARCHAR(100) NOT NULL,
+  "customer_name" VARCHAR(100) NOT NULL,
   PRIMARY KEY ("id"))
 ;
 
@@ -36,6 +36,6 @@ CREATE TABLE "answer_questions" (
   "id" VARCHAR(40) NOT NULL,
   "questions_id" VARCHAR(40) NOT NULL,
   "answers_id" VARCHAR(40) NOT NULL,
-  "response" VARCHAR NULL, -- it can represent a number of concatenated "options" identifiers
+  "response" VARCHAR NOT NULL, -- it can represent a number of concatenated "options" identifiers
   PRIMARY KEY ("id"))
 ;
