@@ -1,0 +1,630 @@
+{
+	"info": {
+		"_postman_id": "4328c71d-0ab0-486d-946d-3e8c8fd7bb6e",
+		"name": "Satisfaction Survey",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Questions",
+			"item": [
+				{
+					"name": "All Questions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/questions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"questions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "title,asc",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All Questions - Ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/questions?page=0&size=10&sort=title,asc",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"questions"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										},
+										{
+											"key": "sort",
+											"value": "title,asc"
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Dec 2021 16:18:30 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"7059aaf7-0118-47ad-9bbd-aa21559c540a\",\n        \"title\": \"Comentarios acerca de la atención recibida\",\n        \"type\": \"OPEN\",\n        \"isRequired\": false,\n        \"options\": null\n    },\n    {\n        \"id\": \"7059aaf7-0118-47ad-9bbd-aa21559c540b\",\n        \"title\": \"¿Puntos a mejorar de las instalaciones?\",\n        \"type\": \"MULTIPLE_CHOICE\",\n        \"isRequired\": true,\n        \"options\": [\n            {\n                \"id\": \"7059aaf7-0118-47ad-9bbd-aa21559c541a\",\n                \"name\": \"Sillas\"\n            },\n            {\n                \"id\": \"7059aaf7-0118-47ad-9bbd-aa21559c541b\",\n                \"name\": \"Mesas\"\n            },\n            {\n                \"id\": \"7059aaf7-0118-47ad-9bbd-aa21559c541c\",\n                \"name\": \"Zonas Verdes\"\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Questions by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/questions/7059aaf7-0118-47ad-9bbd-aa21559c5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"questions",
+								"7059aaf7-0118-47ad-9bbd-aa21559c5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Questions by Id - Ok Open",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/questions/7059aaf7-0118-47ad-9bbd-aa21559c540a",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"questions",
+										"7059aaf7-0118-47ad-9bbd-aa21559c540a"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Dec 2021 15:53:30 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"7059aaf7-0118-47ad-9bbd-aa21559c540a\",\n    \"title\": \"Comentarios acerca de la atención recibida\",\n    \"type\": \"OPEN\",\n    \"isRequired\": false,\n    \"options\": null\n}"
+						},
+						{
+							"name": "Questions by Id - Ok Multiple Choice",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/questions/7059aaf7-0118-47ad-9bbd-aa21559c540b",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"questions",
+										"7059aaf7-0118-47ad-9bbd-aa21559c540b"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Dec 2021 15:59:14 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"7059aaf7-0118-47ad-9bbd-aa21559c540b\",\n    \"title\": \"¿Puntos a mejorar de las instalaciones?\",\n    \"type\": \"MULTIPLE_CHOICE\",\n    \"isRequired\": true,\n    \"options\": [\n        {\n            \"id\": \"7059aaf7-0118-47ad-9bbd-aa21559c541a\",\n            \"name\": \"Sillas\"\n        },\n        {\n            \"id\": \"7059aaf7-0118-47ad-9bbd-aa21559c541b\",\n            \"name\": \"Mesas\"\n        },\n        {\n            \"id\": \"7059aaf7-0118-47ad-9bbd-aa21559c541c\",\n            \"name\": \"Zonas Verdes\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Questions by Id - Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/questions/7059aaf7-0118-47ad-9bbd-aa21559c5",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"questions",
+										"7059aaf7-0118-47ad-9bbd-aa21559c5"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Dec 2021 15:28:30 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Question with identifier \\\"7059aaf7-0118-47ad-9bbd-aa21559c5\\\" not found\",\n    \"timestamp\": \"2021-12-30T10:28:29.884303\",\n    \"status\": 404\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Answers",
+			"item": [
+				{
+					"name": "All Answers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/answers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"answers"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "email,desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All Answers - Ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/answers?page=0&size=10&sort=email,desc",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"answers"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										},
+										{
+											"key": "sort",
+											"value": "email,desc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Dec 2021 16:50:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"d6691d48-2daf-45fc-9299-f73c4f532d82\",\n        \"email\": \"jmilton@gmail.com\",\n        \"customerName\": \"Jhon Milton\"\n    },\n    {\n        \"id\": \"d6691d48-2daf-45fc-9299-f73c4f532d81\",\n        \"email\": \"barcochrist@gmail.com\",\n        \"customerName\": \"Christian Barco\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create Answer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"barcochrist+3@gmail.com\",\n    \"customerName\": \"Christian Barco\",\n    \"answers\": [\n        {\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540a\",\n            \"response\": \"Muy demorada la atención\"\n        },\n        {\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540b\",\n            \"optionIds\": [\n                \"7059aaf7-0118-47ad-9bbd-aa21559c541c\"\n            ]\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/answers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"answers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Answer - Ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"barcochrist+2@gmail.com\",\n    \"customerName\": \"Christian Barco\",\n    \"answers\": [\n        {\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540a\",\n            \"response\": \"Muy demorada la atención\"\n        },\n        {\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540b\",\n            \"optionIds\": [\n                \"7059aaf7-0118-47ad-9bbd-aa21559c541c\"\n            ]\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/answers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"answers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 29 Dec 2021 22:51:24 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"9837f194-0e27-44b4-98fd-409157ae01ec\",\n    \"email\": \"barcochrist+2@gmail.com\",\n    \"customerName\": \"Christian Barco\",\n    \"answers\": [\n        {\n            \"id\": \"8f7a04f6-74d8-4be0-a244-30a5d82c7862\",\n            \"answerId\": \"9837f194-0e27-44b4-98fd-409157ae01ec\",\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540a\",\n            \"response\": \"Muy demorada la atención\",\n            \"questionTitle\": \"Comentarios acerca de la atención recibida\",\n            \"questionType\": \"OPEN\",\n            \"options\": null\n        },\n        {\n            \"id\": \"2f0dd624-7aa9-45f0-93c3-aff0484d9df8\",\n            \"answerId\": \"9837f194-0e27-44b4-98fd-409157ae01ec\",\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540b\",\n            \"response\": null,\n            \"questionTitle\": \"¿Puntos a mejorar de las instalaciones?\",\n            \"questionType\": \"MULTIPLE_CHOICE\",\n            \"options\": [\n                {\n                    \"id\": \"7059aaf7-0118-47ad-9bbd-aa21559c541c\",\n                    \"name\": \"Zonas Verdes\"\n                }\n            ]\n        }\n    ]\n}"
+						},
+						{
+							"name": "Create Answer - Email already done survey",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"barcochrist@gmail.com\",\n    \"customerName\": \"Christian Barco\",\n    \"answers\": [\n        {\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540a\",\n            \"response\": \"Muy demorada la atención\"\n        },\n        {\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540b\",\n            \"optionIds\": [\n                \"7059aaf7-0118-47ad-9bbd-aa21559c541c\"\n            ]\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/answers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"answers"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Dec 2021 15:30:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The customer with the email \\\"barcochrist@gmail.com\\\" has already done the survey\",\n    \"timestamp\": \"2021-12-30T10:30:19.140759\",\n    \"status\": 500\n}"
+						},
+						{
+							"name": "Create Answer - Mandatory question",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"barcochrist+3@gmail.com\",\n    \"customerName\": \"Christian Barco\",\n    \"answers\": [\n        {\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540b\",\n            \"optionIds\": [\n                \"7059aaf7-0118-47ad-9bbd-aa21559c541c\"\n            ]\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/answers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"answers"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Dec 2021 15:31:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Please answer the following mandatory question: \\\"¿Cree que hay algo que se deba mejorar con respecto al menú?\\\"\",\n    \"timestamp\": \"2021-12-30T10:31:13.153144\",\n    \"status\": 500\n}"
+						},
+						{
+							"name": "Create Answer - Ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"barcochrist+3@gmail.com\",\n    \"customerName\": \"Christian Barco\",\n    \"answers\": [\n        {\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540a\",\n            \"response\": \"Muy demorada la atención\"\n        },\n        {\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540b\",\n            \"optionIds\": [\n                \"7059aaf7-0118-47ad-9bbd-aa21559c541c\"\n            ]\n        },\n        {\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540c\",\n            \"response\": \"No, el menú esta muy bien\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/answers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"answers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Dec 2021 15:33:21 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"5fe9b83c-a9eb-4835-9803-729210542ebc\",\n    \"email\": \"barcochrist+3@gmail.com\",\n    \"customerName\": \"Christian Barco\",\n    \"answers\": [\n        {\n            \"id\": \"e53eaa70-3731-42a5-a86e-3357349ae6a3\",\n            \"answerId\": \"5fe9b83c-a9eb-4835-9803-729210542ebc\",\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540a\",\n            \"response\": \"Muy demorada la atención\",\n            \"questionTitle\": \"Comentarios acerca de la atención recibida\",\n            \"questionType\": \"OPEN\",\n            \"options\": null\n        },\n        {\n            \"id\": \"2b3969c6-1d7f-4a3e-9220-e5cd5ae55bd0\",\n            \"answerId\": \"5fe9b83c-a9eb-4835-9803-729210542ebc\",\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540b\",\n            \"response\": null,\n            \"questionTitle\": \"¿Puntos a mejorar de las instalaciones?\",\n            \"questionType\": \"MULTIPLE_CHOICE\",\n            \"options\": [\n                {\n                    \"id\": \"7059aaf7-0118-47ad-9bbd-aa21559c541c\",\n                    \"name\": \"Zonas Verdes\"\n                }\n            ]\n        },\n        {\n            \"id\": \"acfa9836-55c3-4fa8-a989-9e2371c9df48\",\n            \"answerId\": \"5fe9b83c-a9eb-4835-9803-729210542ebc\",\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540c\",\n            \"response\": \"No, el menú esta muy bien\",\n            \"questionTitle\": \"¿Cree que hay algo que se deba mejorar con respecto al menú?\",\n            \"questionType\": \"OPEN\",\n            \"options\": null\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}
