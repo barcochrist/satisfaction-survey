@@ -1,5 +1,6 @@
 package com.github.barcochrist.satisfactionsurvey.service.impl;
 
+import com.github.barcochrist.satisfactionsurvey.config.exception.NotFoundException;
 import com.github.barcochrist.satisfactionsurvey.entity.AnswerJpa;
 import com.github.barcochrist.satisfactionsurvey.entity.AnswerQuestionJpa;
 import com.github.barcochrist.satisfactionsurvey.model.Answer;
@@ -13,6 +14,7 @@ import com.github.barcochrist.satisfactionsurvey.resource.AnswerQuestionDraftRes
 import com.github.barcochrist.satisfactionsurvey.service.AnswerService;
 import java.util.List;
 import java.util.UUID;
+import javax.persistence.NonUniqueResultException;
 import javax.validation.constraints.NotNull;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -43,7 +45,7 @@ public class AnswerServiceImpl implements AnswerService {
   public Answer create(AnswerDraftResource answer) {
     var answerByEmail = answerRepository.findByEmail(answer.getEmail());
     if (answerByEmail.isPresent()) {
-      throw new IllegalArgumentException(
+      throw new NonUniqueResultException(
           String.format("The customer with the email \"%s\" has already done the survey",
               answer.getEmail()));
     }
@@ -56,7 +58,7 @@ public class AnswerServiceImpl implements AnswerService {
         .forEach(aqDraft -> {
           var question = questionRepository
               .findById(aqDraft.getQuestionId())
-              .orElseThrow(() -> new IllegalArgumentException(
+              .orElseThrow(() -> new NotFoundException(
                   String.format("Question with identifier %s, not found",
                       aqDraft.getQuestionId())));
 

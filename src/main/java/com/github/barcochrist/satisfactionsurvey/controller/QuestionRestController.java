@@ -1,5 +1,6 @@
 package com.github.barcochrist.satisfactionsurvey.controller;
 
+import com.github.barcochrist.satisfactionsurvey.config.exception.NotFoundException;
 import com.github.barcochrist.satisfactionsurvey.model.Question;
 import com.github.barcochrist.satisfactionsurvey.model.enums.QuestionType;
 import com.github.barcochrist.satisfactionsurvey.resource.QuestionOptionResource;
@@ -38,7 +39,8 @@ public class QuestionRestController {
   ) {
     var response = questionService
         .findById(id)
-        .orElseThrow(() -> new IllegalArgumentException("Question not found"));
+        .orElseThrow(() -> new NotFoundException(
+            String.format("Question with identifier \"%s\" not found", id)));
     return ResponseEntity.ok(instanceQuestionResource(response));
   }
 

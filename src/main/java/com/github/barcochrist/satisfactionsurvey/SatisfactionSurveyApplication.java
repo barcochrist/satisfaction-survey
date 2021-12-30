@@ -1,5 +1,6 @@
 package com.github.barcochrist.satisfactionsurvey;
 
+import com.github.barcochrist.satisfactionsurvey.config.response.RestControllerExceptionHandler;
 import com.github.barcochrist.satisfactionsurvey.controller.QuestionRestController;
 import com.github.barcochrist.satisfactionsurvey.entity.QuestionJpa;
 import com.github.barcochrist.satisfactionsurvey.repository.QuestionRepository;
@@ -15,7 +16,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(basePackageClasses = {
     QuestionRepositoryImpl.class,
     QuestionServiceImpl.class,
-    QuestionRestController.class
+    QuestionRestController.class,
+    RestControllerExceptionHandler.class
 })
 @EntityScan(basePackageClasses = {
     QuestionJpa.class
