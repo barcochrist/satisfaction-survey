@@ -118,14 +118,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/api/questions/7059aaf7-0118-47ad-9bbd-aa21559c5",
+							"raw": "{{baseUrl}}/api/questions/7059aaf7-0118-47ad-9bbd-aa21559c540b",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
 								"questions",
-								"7059aaf7-0118-47ad-9bbd-aa21559c5"
+								"7059aaf7-0118-47ad-9bbd-aa21559c540b"
 							]
 						}
 					},
@@ -373,7 +373,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"barcochrist+3@gmail.com\",\n    \"customerName\": \"Christian Barco\",\n    \"answers\": [\n        {\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540a\",\n            \"response\": \"Muy demorada la atención\"\n        },\n        {\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540b\",\n            \"optionIds\": [\n                \"7059aaf7-0118-47ad-9bbd-aa21559c541c\"\n            ]\n        }\n    ]\n}",
+							"raw": "{\n    \"email\": \"usuario5@email.com\",\n    \"customerName\": \"Usuario 5\",\n    \"answers\": [\n        {\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540a\",\n            \"response\": \"Muy demorada la atención\"\n        },\n        {\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540b\",\n            \"optionIds\": [\n                \"7059aaf7-0118-47ad-9bbd-aa21559c541a\",\n                \"7059aaf7-0118-47ad-9bbd-aa21559c541b\"\n            ]\n        },\n        {\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540c\",\n            \"response\": \"Si, incluyan más bebidas\"\n        },\n{\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540e\",\n            \"optionIds\": [\n                \"7059aaf7-0118-47ad-9bbd-aa21559c541h\"\n            ]\n        }\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -595,6 +595,59 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": \"5fe9b83c-a9eb-4835-9803-729210542ebc\",\n    \"email\": \"barcochrist+3@gmail.com\",\n    \"customerName\": \"Christian Barco\",\n    \"answers\": [\n        {\n            \"id\": \"e53eaa70-3731-42a5-a86e-3357349ae6a3\",\n            \"answerId\": \"5fe9b83c-a9eb-4835-9803-729210542ebc\",\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540a\",\n            \"response\": \"Muy demorada la atención\",\n            \"questionTitle\": \"Comentarios acerca de la atención recibida\",\n            \"questionType\": \"OPEN\",\n            \"options\": null\n        },\n        {\n            \"id\": \"2b3969c6-1d7f-4a3e-9220-e5cd5ae55bd0\",\n            \"answerId\": \"5fe9b83c-a9eb-4835-9803-729210542ebc\",\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540b\",\n            \"response\": null,\n            \"questionTitle\": \"¿Puntos a mejorar de las instalaciones?\",\n            \"questionType\": \"MULTIPLE_CHOICE\",\n            \"options\": [\n                {\n                    \"id\": \"7059aaf7-0118-47ad-9bbd-aa21559c541c\",\n                    \"name\": \"Zonas Verdes\"\n                }\n            ]\n        },\n        {\n            \"id\": \"acfa9836-55c3-4fa8-a989-9e2371c9df48\",\n            \"answerId\": \"5fe9b83c-a9eb-4835-9803-729210542ebc\",\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540c\",\n            \"response\": \"No, el menú esta muy bien\",\n            \"questionTitle\": \"¿Cree que hay algo que se deba mejorar con respecto al menú?\",\n            \"questionType\": \"OPEN\",\n            \"options\": null\n        }\n    ]\n}"
+						},
+						{
+							"name": "Create Answer - Ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"usuario5@email.com\",\n    \"customerName\": \"Usuario 5\",\n    \"answers\": [\n        {\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540a\",\n            \"response\": \"Muy demorada la atención\"\n        },\n        {\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540b\",\n            \"optionIds\": [\n                \"7059aaf7-0118-47ad-9bbd-aa21559c541a\",\n                \"7059aaf7-0118-47ad-9bbd-aa21559c541b\"\n            ]\n        },\n        {\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540c\",\n            \"response\": \"Si, incluyan más bebidas\"\n        },\n{\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540e\",\n            \"optionIds\": [\n                \"7059aaf7-0118-47ad-9bbd-aa21559c541h\"\n            ]\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/answers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"answers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 03 Jan 2022 18:40:38 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"e89f947d-0883-4274-a33f-2d2c97209f1b\",\n    \"email\": \"usuario5@email.com\",\n    \"customerName\": \"Usuario 5\",\n    \"answers\": [\n        {\n            \"id\": \"2ae153bc-ca5e-480d-b6cb-38998c1b56d7\",\n            \"answerId\": \"e89f947d-0883-4274-a33f-2d2c97209f1b\",\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540a\",\n            \"response\": \"Muy demorada la atención\",\n            \"questionTitle\": \"Comentarios acerca de la atención recibida\",\n            \"questionType\": \"OPEN\",\n            \"options\": null\n        },\n        {\n            \"id\": \"87709025-8136-4d5b-8f5d-d3beb8d1427b\",\n            \"answerId\": \"e89f947d-0883-4274-a33f-2d2c97209f1b\",\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540b\",\n            \"response\": null,\n            \"questionTitle\": \"¿Puntos a mejorar de las instalaciones?\",\n            \"questionType\": \"MULTIPLE_CHOICE\",\n            \"options\": [\n                {\n                    \"id\": \"7059aaf7-0118-47ad-9bbd-aa21559c541a\",\n                    \"name\": \"Sillas\"\n                },\n                {\n                    \"id\": \"7059aaf7-0118-47ad-9bbd-aa21559c541b\",\n                    \"name\": \"Mesas\"\n                }\n            ]\n        },\n        {\n            \"id\": \"fee303b7-9245-4042-b29a-3af55a64ba34\",\n            \"answerId\": \"e89f947d-0883-4274-a33f-2d2c97209f1b\",\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540c\",\n            \"response\": \"Si, incluyan más bebidas\",\n            \"questionTitle\": \"¿Cree que hay algo que se deba mejorar con respecto al menú?\",\n            \"questionType\": \"OPEN\",\n            \"options\": null\n        },\n        {\n            \"id\": \"13cf5275-2ddc-4081-a791-24b5225dc18b\",\n            \"answerId\": \"e89f947d-0883-4274-a33f-2d2c97209f1b\",\n            \"questionId\": \"7059aaf7-0118-47ad-9bbd-aa21559c540e\",\n            \"response\": null,\n            \"questionTitle\": \"¿Recomendarías este lugar a tus amigos y familia?\",\n            \"questionType\": \"MULTIPLE_CHOICE\",\n            \"options\": [\n                {\n                    \"id\": \"7059aaf7-0118-47ad-9bbd-aa21559c541h\",\n                    \"name\": \"No\"\n                }\n            ]\n        }\n    ]\n}"
 						}
 					]
 				}
