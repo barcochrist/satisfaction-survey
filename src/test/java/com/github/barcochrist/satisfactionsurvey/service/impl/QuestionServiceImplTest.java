@@ -1,22 +1,22 @@
 package com.github.barcochrist.satisfactionsurvey.service.impl;
 
-import static com.github.barcochrist.satisfactionsurvey.service.impl.QuestionServiceImplTest.Instance.EMPTY_PAGE;
-import static com.github.barcochrist.satisfactionsurvey.service.impl.QuestionServiceImplTest.Instance.PAGEABLE;
-import static com.github.barcochrist.satisfactionsurvey.service.impl.QuestionServiceImplTest.Instance.QUESTION_1;
-import static com.github.barcochrist.satisfactionsurvey.service.impl.QuestionServiceImplTest.Instance.QUESTION_1_ID;
+import static com.github.barcochrist.satisfactionsurvey.service.impl.QuestionServiceImplTest.Instance.EMPTY_QUESTION_PAGE;
 import static com.github.barcochrist.satisfactionsurvey.service.impl.QuestionServiceImplTest.Instance.QUESTION_OPTION_1_ID;
 import static com.github.barcochrist.satisfactionsurvey.service.impl.QuestionServiceImplTest.Instance.QUESTION_OPTION_2_ID;
 import static com.github.barcochrist.satisfactionsurvey.service.impl.QuestionServiceImplTest.Instance.QUESTION_OPTION_LIST;
 import static com.github.barcochrist.satisfactionsurvey.service.impl.QuestionServiceImplTest.Instance.QUESTION_PAGE;
-import static com.github.barcochrist.satisfactionsurvey.service.impl.UnitTestMessage.MUST_BE_NULL;
-import static com.github.barcochrist.satisfactionsurvey.service.impl.UnitTestMessage.MUST_NOT_BE_NULL;
-import static com.github.barcochrist.satisfactionsurvey.service.impl.UnitTestMessage.VALUE_DOESN_T_MATCH;
+import static com.github.barcochrist.satisfactionsurvey.service.impl.CommonUnitTest.MUST_BE_NULL;
+import static com.github.barcochrist.satisfactionsurvey.service.impl.CommonUnitTest.MUST_NOT_BE_NULL;
+import static com.github.barcochrist.satisfactionsurvey.service.impl.CommonUnitTest.PAGEABLE;
+import static com.github.barcochrist.satisfactionsurvey.service.impl.CommonUnitTest.QUESTION_1;
+import static com.github.barcochrist.satisfactionsurvey.service.impl.CommonUnitTest.QUESTION_1_ID;
+import static com.github.barcochrist.satisfactionsurvey.service.impl.CommonUnitTest.QUESTION_2;
+import static com.github.barcochrist.satisfactionsurvey.service.impl.CommonUnitTest.VALUE_DOESN_T_MATCH;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
-import com.github.barcochrist.satisfactionsurvey.entity.QuestionJpa;
 import com.github.barcochrist.satisfactionsurvey.entity.QuestionOptionJpa;
 import com.github.barcochrist.satisfactionsurvey.model.Question;
 import com.github.barcochrist.satisfactionsurvey.model.QuestionOption;
@@ -32,8 +32,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 
 class QuestionServiceImplTest {
 
@@ -113,7 +111,7 @@ class QuestionServiceImplTest {
 
   @Test
   void findAllEmpty() {
-    when(service.findAll(any())).thenReturn(EMPTY_PAGE);
+    when(service.findAll(any())).thenReturn(EMPTY_QUESTION_PAGE);
     var response = service.findAll(PAGEABLE);
     assertNotNull(response, MUST_NOT_BE_NULL);
     assertEquals(0, response.getTotalElements(), VALUE_DOESN_T_MATCH);
@@ -123,24 +121,6 @@ class QuestionServiceImplTest {
 
   interface Instance {
 
-    String QUESTION_1_ID = "2789aaf7-0118-47ad-9bbd-aa21559c231a";
-    Question QUESTION_1 = QuestionJpa.builder()
-        .id(QUESTION_1_ID)
-        .title("Pregunta X")
-        .type(QuestionType.MULTIPLE_CHOICE)
-        .isRequired(true)
-        .build();
-
-    String QUESTION_2_ID = "2789aaf7-0118-47ad-9bbd-aa21559c231b";
-    Question QUESTION_2 = QuestionJpa.builder()
-        .id(QUESTION_2_ID)
-        .title("Pregunta Y")
-        .type(QuestionType.OPEN)
-        .isRequired(false)
-        .build();
-
-    Pageable PAGEABLE = PageRequest.of(1, 10);
-    Page EMPTY_PAGE = Page.empty();
     Page<Question> QUESTION_PAGE = new PageImpl<>(List.of(QUESTION_1, QUESTION_2));
 
     String QUESTION_OPTION_1_ID = "7059aaf7-0118-47ad-9bbd-aa21559c549a";
@@ -158,5 +138,6 @@ class QuestionServiceImplTest {
         .build();
 
     List<QuestionOption> QUESTION_OPTION_LIST = List.of(QUESTION_OPTION_1, QUESTION_OPTION_2);
+    Page<Question> EMPTY_QUESTION_PAGE = Page.empty();
   }
 }
